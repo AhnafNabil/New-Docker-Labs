@@ -14,11 +14,13 @@ In this document, we will get to know about the following restart policies:
 
 ## Restart Policies Explained
 
-### always
+## always
 
 The `always` policy is the simplest. When a container has this restart policy, Docker will automatically restart the container if it stops or encounters an error.
 
-#### Demonstration
+![alt text](image.png)
+
+### Demonstration
 
 1. Start a new interactive container with the `--restart always` policy and run a shell process:
    ```sh
@@ -62,11 +64,13 @@ To illustrate:
 2. The container will be in the Stopped (Exited) state.
 3. Restart the Docker daemon, and the container will be automatically restarted when the daemon comes back up.
 
-### unless-stopped
+## unless-stopped
 
 The main difference between the `always` and `unless-stopped` policies is that containers with the `--restart unless-stopped` policy will not be restarted when the daemon restarts if they were in the Stopped (Exited) state.
 
-#### Example
+![alt text](image-1.png)
+
+### Example
 
 1. Create two new containers:
    ```sh
@@ -123,11 +127,13 @@ The main difference between the `always` and `unless-stopped` policies is that c
 
 The `always` container has been restarted, but the `unless-stopped` container has not.
 
-### on-failure
+## on-failure
 
 The `on-failure` policy will restart a container if it exits with a non-zero exit code. It will also restart containers when the Docker daemon restarts, even those that were in the stopped state.
 
-#### Demonstration
+![alt text](image-2.png)
+
+### Demonstration
 
 1.  Use the `docker run` command with the `--restart` option set to on-failure.
 
